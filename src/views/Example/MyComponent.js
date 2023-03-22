@@ -3,6 +3,14 @@ import ChildComponent from './ChildComponent';
 import AddComponent from './AddComponent';
 
 class MyComponent extends React.Component {
+    componentDidUpdate(prevProps, prevState) {
+        console.log('>> run didupdate: ', 'prev state: ', prevState, ' current state: ', this.state);
+    }
+
+    componentDidMount() {
+        console.log('>>> run component did mount');
+    }
+
     state = {
         arrJobs: [
             { id: 'job1', title: 'Developers', salary: '500' },
