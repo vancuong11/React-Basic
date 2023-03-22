@@ -14,6 +14,7 @@ class MyComponent extends React.Component {
         alert('click me!');
     };
     render() {
+        console.log('>>> call render: ', this.state);
         return (
             <>
                 <div className="first">
