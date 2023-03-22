@@ -1,8 +1,25 @@
 import React from 'react';
 
 class MyComponent extends React.Component {
+    state = {
+        name: 'Van Cuong',
+        channel: 'Hoc lap trinh',
+    };
+    handleOnChangeName = (event) => {
+        this.setState({
+            name: event.target.value,
+        });
+    };
     render() {
-        return <div>Hello World!</div>;
+        return (
+            <>
+                <div className="first">
+                    <input value={this.state.name} type="text" onChange={(event) => this.handleOnChangeName(event)} />
+                    My name is {this.state.name}
+                </div>
+                <div className="second">My youtube channel : {this.state.channel}</div>
+            </>
+        );
     }
 }
 
