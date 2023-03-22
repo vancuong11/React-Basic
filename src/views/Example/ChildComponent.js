@@ -12,6 +12,9 @@ class ChildComponent extends React.Component {
         });
     };
 
+    handOnClickDelete = (job) => {
+        this.props.deleteJob(job);
+    };
     render() {
         let { arrJobs } = this.props;
         let { showJobs } = this.state;
@@ -27,7 +30,13 @@ class ChildComponent extends React.Component {
                             {arrJobs.map((item, index) => {
                                 return (
                                     <div key={item.id}>
-                                        {item.title} - {item.salary} &nbsp;$
+                                        {item.title} - {item.salary}$&nbsp;
+                                        <span
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() => this.handOnClickDelete(item)}
+                                        >
+                                            x
+                                        </span>
                                     </div>
                                 );
                             })}
