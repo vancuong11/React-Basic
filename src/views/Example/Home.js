@@ -10,7 +10,6 @@ class Home extends React.Component {
     //     }, 3000);
     // }
     render() {
-        console.log('check props: ', this.props);
         return <div>Hello world from Homepage with Eric & Hoi Dan IT</div>;
     }
 }
