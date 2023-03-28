@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import Color from '../HOC/color';
 import logo from '../../assets/image/73251895_551262542352865_6067258591184683008_n.jpg';
 
+import { connect } from 'react-redux';
+
 class Home extends React.Component {
     // life cycle React
     // componentDidMount() {
@@ -11,6 +13,7 @@ class Home extends React.Component {
     //     }, 3000);
     // }
     render() {
+        console.log('check props: ', this.props.dataRedux);
         return (
             <>
                 <div>Hello world from Homepage with Eric & Hoi Dan IT</div>
@@ -22,5 +25,11 @@ class Home extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        dataRedux: state.users,
+    };
+};
+
 // export default withRouter(Home);
-export default Color(Home);
+export default connect(mapStateToProps)(Color(Home));
