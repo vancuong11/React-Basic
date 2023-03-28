@@ -5,6 +5,10 @@ import './styles/global.scss';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './store/reducers/rootReducer';
+
 // -------------- Version 18 --------------------------------------------------
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -14,9 +18,12 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 // -------------- Version 17 --------------------------------------------------
+const reduxStore = createStore(rootReducer);
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Provider store={reduxStore}>
+            <App />
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
 );
